@@ -37,15 +37,45 @@
                 <td><?php echo $brg->kategori ?></td>
                 <td><?php echo $brg->harga ?></td>
                 <td><?php echo $brg->stok ?></td>
-                <td><div class="btn btn-success btn-sm"><i class="fas fa-search-plus"></i></div></td>
+                <td>
+                    <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#previewModal<?php echo $brg->id_brg; ?>">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </td>
                 <td><?php echo anchor('admin/data_barang/edit/' . $brg->id_brg, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
                 <td><?php echo anchor('admin/data_barang/hapus/' . $brg->id_brg, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
             </tr>
+
+            <!-- Modal Preview -->
+            <div class="modal fade" id="previewModal<?php echo $brg->id_brg; ?>" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="previewModalLabel">Preview Barang</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Nama Barang:</strong> <?php echo $brg->nama_brg; ?></p>
+                            <p><strong>Keterangan:</strong> <?php echo $brg->keterangan; ?></p>
+                            <p><strong>Kategori:</strong> <?php echo $brg->kategori; ?></p>
+                            <p><strong>Harga:</strong> <?php echo $brg->harga; ?></p>
+                            <p><strong>Stok:</strong> <?php echo $brg->stok; ?></p>
+                            <p><strong>Gambar:</strong></p>
+                            <img src="<?php echo base_url('/assets/uploads/' . $brg->gambar); ?>" class="img-fluid" alt="Gambar Barang">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <?php endforeach; ?>
         </table>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Tambah Barang -->
     <div class="modal fade" id="tambah_barang" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
