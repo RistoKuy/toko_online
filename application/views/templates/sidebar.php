@@ -11,7 +11,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-store"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">TOKO ONLINE <sup></sup></div>
+                <div class="sidebar-brand-text mx-3">TOKO ONLINE<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -169,7 +169,7 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
+                    
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -193,12 +193,12 @@
                                 </form>
                             </div>
                         </li>
-
+                    
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valene Luna</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">User</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -224,7 +224,7 @@
                                 </a>
                             </div>
                         </li>
-
+                    
                     </ul>
 
                 </nav>
