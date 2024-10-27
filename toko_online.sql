@@ -35,6 +35,7 @@ CREATE TABLE `tb_barang` (
   `harga` int(11) NOT NULL,
   `stok` int(4) NOT NULL,
   `gambar` text NOT NULL
+  PRIMARY KEY (id_brg)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
