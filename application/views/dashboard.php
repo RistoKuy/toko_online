@@ -60,6 +60,26 @@
         <?php endforeach; ?>
     </div>
 
+        <!-- Product Preview Modal -->
+    <div class="modal fade" id="productPreviewModal" tabindex="-1" role="dialog" aria-labelledby="productPreviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productPreviewModalLabel">Preview Barang</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="previewImage" src="" class="img-fluid" alt="...">
+                    <h5 id="previewTitle" class="mt-3"></h5>
+                    <p id="previewDescription"></p>
+                    <span id="previewPrice" class="badge badge-pill badge-success mb-3"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Cart Modal -->
     <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -133,5 +153,24 @@
             });
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.btn-success').on('click', function() {
+                var image = $(this).closest('.card').find('.card-img-top').attr('src');
+                var title = $(this).closest('.card').find('.card-title').text();
+                var description = $(this).closest('.card').find('small').text();
+                var price = $(this).closest('.card').find('.badge').text();
+    
+                $('#previewImage').attr('src', image);
+                $('#previewTitle').text(title);
+                $('#previewDescription').text(description);
+                $('#previewPrice').text(price);
+    
+                $('#productPreviewModal').modal('show');
+            });
+        });
+    </script>
+
 </body>
 </html>
