@@ -113,12 +113,14 @@
     <!-- Include FontAwesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
+    // Fitur Keranjang Belanja
     <script>
         $(document).ready(function() {
             let cart = [];
             let cartCount = 0;
             let totalPrice = 0;
 
+            // Add to Cart
             $('.add-to-cart').click(function() {
                 const id = $(this).data('id');
                 const name = $(this).data('name');
@@ -138,6 +140,7 @@
                 $('#cart-items').append(cartItem);
             });
 
+            // Remove from Cart
             $(document).on('click', '.remove-from-cart', function() {
                 const id = $(this).data('id');
                 const price = parseFloat($(this).data('price'));
@@ -154,6 +157,7 @@
         });
     </script>
 
+    // Fitur Preview Barang
     <script>
         $(document).ready(function() {
             $('.btn-success').on('click', function() {
