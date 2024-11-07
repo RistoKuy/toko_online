@@ -113,7 +113,6 @@
     <!-- Include FontAwesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-    // Fitur Keranjang Belanja
     <script>
         $(document).ready(function() {
             let cart = [];
@@ -157,7 +156,6 @@
         });
     </script>
 
-    // Fitur Preview Barang
     <script>
         $(document).ready(function() {
             $('.btn-success').on('click', function() {
