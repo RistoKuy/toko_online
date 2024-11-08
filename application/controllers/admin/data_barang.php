@@ -27,7 +27,7 @@ class Data_barang extends CI_Controller
         } else {
             $config['upload_path']   = './assets/uploads';
             $config['allowed_types'] = 'jpg|jpeg|png|gif';
-            $config['file_name']     = $id_brg . '_' . $gambar; // Optional: Rename the file to include id_brg
+            $config['file_name']     = $gambar;
 
             $this->load->library('upload', $config);
 
@@ -54,8 +54,20 @@ class Data_barang extends CI_Controller
     }
 
     public function hapus($id){
+        // Get the item to delete
+        $barang = $this->model_barang->get_barang_by_id($id);
+        $gambar = $barang->gambar;
+
+        // Delete the item from the database
         $where = array('id_brg' => $id);
         $this->model_barang->hapus_data($where, 'tb_barang');
+
+        // Delete the image file
+        $file_path = './assets/uploads/' . $gambar;
+        if (file_exists($file_path)) {
+            unlink($file_path);
+        }
+
         redirect('admin/data_barang/index');
     }
 
