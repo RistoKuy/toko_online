@@ -40,4 +40,22 @@ class Model_barang extends CI_Model
         $query = $this->db->get($table);
         return $query->row()->id_brg;
     }
+
+    public function tampilData()
+    {
+        return $this->db->get('tb_barang')->result_array();
+    }
+
+    public function find($id)
+    {
+        $result = $this->db->where('id_brg', $id)
+            ->limit(1)
+            ->get('tb_barang');
+
+        if ($result->num_rows() > 0) {
+            return $result->row();
+        } else {
+            return array();
+        }
+    }
 }

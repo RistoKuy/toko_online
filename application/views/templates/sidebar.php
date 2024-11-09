@@ -19,9 +19,10 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?php echo base_url(); ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -194,6 +195,22 @@
                             </div>
                         </li>
                     
+                        <!-- Nav Item - Cart -->
+                        <div class="navbar">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <?php
+                                    if (isset($this->cart)) {
+                                        $total_items = $this->cart->total_items();
+                                        echo anchor('dashboard/detail_keranjang', '<i class="fas fa-shopping-cart"></i> ' . $total_items);
+                                    } else {
+                                        echo anchor('dashboard/detail_keranjang', '<i class="fas fa-shopping-cart"></i> 0');
+                                    }
+                                    ?>
+                                </li>
+                            </ul>
+                        </div>
+
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
