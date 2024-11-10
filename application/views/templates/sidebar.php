@@ -51,36 +51,31 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link" href="<?= base_url('kategori/elektronik'); ?>">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Elektronik</span>
                 </a>
             </li>
              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link" href="<?= base_url('kategori/pakaian_pria'); ?>">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Pakaian Pria</span>
                 </a>
             </li>
              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link" href="<?= base_url('kategori/pakaian_wanita'); ?>">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Pakaian Wanita</span>
                 </a>
             </li>
              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link" href="<?= base_url('kategori/pakaian_anak'); ?>">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Pakaian Anak</span>
                 </a>
             </li>
              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link" href="<?= base_url('kategori/olahraga'); ?>">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Peralatan Olahraga</span>
                 </a>

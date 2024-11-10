@@ -36,7 +36,7 @@
                                 </strong> </td>
                         </tr>
                     </table>
-                    <a href="<?= base_url('dashboard/index') ?>" class="btn btn-sm btn-secondary mb-0">Kembali</a>
+                    <a href="<?= base_url('dashboard/back') ?>" class="btn btn-sm btn-secondary mb-0">Kembali</a>
                     <?= anchor('dashboard/tambah_keranjang/' . $brg['id_brg'], '<div class="btn btn-sm btn-primary">Tambah ke keranjang</div>') ?>
                 </div>
             </div>
