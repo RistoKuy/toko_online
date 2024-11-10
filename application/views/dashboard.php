@@ -32,37 +32,17 @@
     <!-- Product Cards -->
     <div class="row text-center mt-3">
         <?php foreach ($barang as $brg) : ?>
-        <div class="col card ml-3" style="width: 16rem;">
-            <img src="<?= base_url('uploads/' . $brg['gambar']) ?>" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title mb-1"><?= $brg['nama_brg']; ?></h5>
-                <small><?= $brg['keterangan']; ?></small> <br>
-                <span class="badge badge-pill badge-success mb-3">Rp.<?= number_format($brg['harga'], 0, ',', '.'); ?></span>
-                <?= anchor('dashboard/tambah_keranjang/' . $brg['id_brg'], '<div class="btn btn-sm btn-primary">Tambah ke keranjang</div>') ?>
-                <a href="<?= base_url('dashboard/detail/' . $brg['id_brg']) ?>" class="btn btn-sm btn-success mb-0">Detail</a>
+            <div class="card ml-3" style="width: 16rem;">
+                <img src="<?php echo base_url().'assets/uploads/'.$brg->gambar ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title mb-1"><?php echo $brg->nama_brg ?></h5>
+                    <small><?php echo $brg->keterangan ?></small><br>
+                    <span class="badge badge-pill badge-success mb-3">Rp. <?php echo number_format($brg->harga, 0, ',', '.'); ?></span>
+                    <?= anchor('dashboard/tambah_keranjang/' . $brg->id_brg, '<div class="btn btn-sm btn-primary">Tambah ke keranjang</div>') ?>
+                    <a href="<?= base_url('dashboard/detail/' . $brg->id_brg) ?>" class="btn btn-sm btn-success mb-0">Detail</a>
+                </div>
             </div>
-        </div>
         <?php endforeach; ?>
-    </div>
-
-    <!-- Product Preview Modal -->
-    <div class="modal fade" id="productPreviewModal" tabindex="-1" role="dialog" aria-labelledby="productPreviewModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="productPreviewModalLabel">Preview Barang</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img id="previewImage" src="" class="img-fluid" alt="...">
-                    <h5 id="previewTitle" class="mt-3"></h5>
-                    <p id="previewDescription"></p>
-                    <span id="previewPrice" class="badge badge-pill badge-success mb-3"></span>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Cart Modal -->

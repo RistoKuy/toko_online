@@ -50,6 +50,12 @@ class Dashboard extends CI_Controller {
         redirect('http://localhost/toko_online/');
     }
 
+    public function hapus_item_keranjang($rowid)
+    {
+        $this->cart->remove($rowid);
+        redirect('http://localhost/toko_online/dashboard/detail_keranjang');
+    }
+
     public function pembayaran()
     {
         $data['judul'] = 'Pembayaran';

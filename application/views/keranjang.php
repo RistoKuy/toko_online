@@ -8,6 +8,7 @@
             <th>Jumlah</th>
             <th>Harga</th>
             <th>Sub-Total</th>
+            <th>Aksi</th> <!-- Add this line -->
         </tr>
         <?php
         $no = 1;
@@ -18,6 +19,7 @@
                 <td><?= $items['qty']; ?></td>
                 <td align="right">Rp. <?= number_format($items['price'], 0, ',', '.'); ?></td>
                 <td align="right">Rp. <?= number_format($items['subtotal'], 0, ',', '.'); ?></td>
+                <td><a href="<?= base_url('dashboard/hapus_item_keranjang/' . $items['rowid']); ?>" class="btn btn-sm btn-danger">Hapus</a></td> <!-- Add this line -->
             </tr>
         <?php endforeach; ?>
         <tr>

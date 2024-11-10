@@ -7,7 +7,7 @@
             <?php foreach ($barang as $brg) : ?>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="<?= base_url('uploads/' . $brg['gambar']); ?>" class="card-img-top" alt="">
+                    <img src="<?= base_url('assets/uploads/' . $brg['gambar']); ?>" class="card-img-top" alt="">
                 </div>
                 <div class="col-md-8">
                     <table class="table">
