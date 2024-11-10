@@ -18,8 +18,8 @@
             $total += $subtotal;
             ?>
         <tr>
-            <td><?= $p['id_barang'] ?></td>
-            <td><?= $p['nama_barang'] ?></td>
+            <td><?= $p['id_brg'] ?></td>
+            <td><?= $p['nama_brg'] ?></td>
             <td><?= $p['jumlah'] ?></td>
             <td><?= number_format($p['harga'], 0, ',', '.')  ?></td>
             <td><?= number_format($subtotal, 0, ',', '.')  ?></td>

@@ -32,16 +32,16 @@
     <!-- Product Cards -->
     <div class="row text-center mt-3">
         <?php foreach ($barang as $brg) : ?>
-            <div class="card ml-3" style="width: 16rem;">
-                <img src="<?php echo base_url().'assets/uploads/'.$brg->gambar ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title mb-1"><?php echo $brg->nama_brg ?></h5>
-                    <small><?php echo $brg->keterangan ?></small><br>
-                    <span class="badge badge-pill badge-success mb-3">Rp. <?php echo number_format($brg->harga, 0, ',', '.'); ?></span>
-                    <?= anchor('dashboard/tambah_keranjang/' . $brg->id_brg, '<div class="btn btn-sm btn-primary">Tambah ke keranjang</div>') ?>
-                    <a href="#" class="btn btn-sm btn-success">Detail</a>
-                </div>
+        <div class="col card ml-3" style="width: 16rem;">
+            <img src="<?= base_url('uploads/' . $brg['gambar']) ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title mb-1"><?= $brg['nama_brg']; ?></h5>
+                <small><?= $brg['keterangan']; ?></small> <br>
+                <span class="badge badge-pill badge-success mb-3">Rp.<?= number_format($brg['harga'], 0, ',', '.'); ?></span>
+                <?= anchor('dashboard/tambah_keranjang/' . $brg['id_brg'], '<div class="btn btn-sm btn-primary">Tambah ke keranjang</div>') ?>
+                <a href="<?= base_url('dashboard/detail/' . $brg['id_brg']) ?>" class="btn btn-sm btn-success mb-0">Detail</a>
             </div>
+        </div>
         <?php endforeach; ?>
     </div>
 
@@ -97,24 +97,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Include FontAwesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('.btn-success').on('click', function() {
-                var image = $(this).closest('.card').find('.card-img-top').attr('src');
-                var title = $(this).closest('.card').find('.card-title').text();
-                var description = $(this).closest('.card').find('small').text();
-                var price = $(this).closest('.card').find('.badge').text();
-    
-                $('#previewImage').attr('src', image);
-                $('#previewTitle').text(title);
-                $('#previewDescription').text(description);
-                $('#previewPrice').text(price);
-    
-                $('#productPreviewModal').modal('show');
-            });
-        });
-    </script>
 
 </body>
 </html>
