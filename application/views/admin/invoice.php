@@ -21,6 +21,7 @@
             <td><?= $i['batas_bayar'] ?></td>
             <td>
                 <a href="<?= base_url('admin/invoice/detail/' . $i['id']) ?>" class="btn btn-primary">Detail</a>
+                <a href="<?= base_url('admin/invoice/delete/' . $i['id']) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this invoice?');">Delete</a>
             </td>
         </tr>
         <?php endforeach; ?>

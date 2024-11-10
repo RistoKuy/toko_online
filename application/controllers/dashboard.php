@@ -37,6 +37,7 @@ class Dashboard extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('cart');
+        $this->load->model('model_invoice'); // Add this line to load the model
     }
 
     public function keranjang() {

@@ -19,8 +19,8 @@ class model_invoice extends CI_Model
         foreach ($this->cart->contents() as $item) {
             $data = [
                 'id_invoice' => $id_invoice,
-                'id_barang' => $item['id'],
-                'nama_barang' => $item['name'],
+                'id_brg' => $item['id'],
+                'nama_brg' => $item['name'],
                 'jumlah' => $item['qty'],
                 'harga' => $item['price']
             ];
@@ -57,5 +57,16 @@ class model_invoice extends CI_Model
         } else {
             return false;
         }
+    }
+
+    public function deleteInvoice($id_invoice)
+    {
+        // Delete orders associated with the invoice
+        $this->db->where('id_invoice', $id_invoice);
+        $this->db->delete('tb_pesanan');
+
+        // Delete the invoice
+        $this->db->where('id', $id_invoice);
+        $this->db->delete('tb_invoice');
     }
 }

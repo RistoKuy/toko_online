@@ -28,4 +28,10 @@ class invoice extends CI_Controller
         $this->load->view('admin/detail_invoice', $data);
         $this->load->view('templates_admin/footer');
     }
+
+    public function delete($id)
+    {
+        $this->model_invoice->deleteInvoice($id);
+        redirect('admin/invoice');
+    }
 }
