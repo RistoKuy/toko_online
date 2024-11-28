@@ -13,8 +13,14 @@ class model_invoice extends CI_Model
             'batas_bayar' => date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s'), date('m'), date('d') + 1, date('Y')))
         ];
 
+        // Iterate to find a unique ID for tb_invoice
+        $id_invoice = 1;
+        while ($this->db->where('id', $id_invoice)->get('tb_invoice')->num_rows() > 0) {
+            $id_invoice++;
+        }
+        $invoice['id'] = $id_invoice;
+
         $this->db->insert('tb_invoice', $invoice);
-        $id_invoice = $this->db->insert_id();
 
         foreach ($this->cart->contents() as $item) {
             $data = [
@@ -24,6 +30,14 @@ class model_invoice extends CI_Model
                 'jumlah' => $item['qty'],
                 'harga' => $item['price']
             ];
+
+            // Iterate to find a unique ID for tb_pesanan
+            $id_pesanan = 1;
+            while ($this->db->where('id', $id_pesanan)->get('tb_pesanan')->num_rows() > 0) {
+                $id_pesanan++;
+            }
+            $data['id'] = $id_pesanan;
+
             $this->db->insert('tb_pesanan', $data);
         }
         return true;
@@ -68,5 +82,14 @@ class model_invoice extends CI_Model
         // Delete the invoice
         $this->db->where('id', $id_invoice);
         $this->db->delete('tb_invoice');
+    }
+
+    public function deleteAllInvoice()
+    {
+        // Delete all orders
+        $this->db->empty_table('tb_pesanan');
+
+        // Delete all invoices
+        $this->db->empty_table('tb_invoice');
     }
 }

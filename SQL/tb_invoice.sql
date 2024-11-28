@@ -1,5 +1,5 @@
 CREATE TABLE `tb_invoice` (
-  `id` int PRIMARY KEY NOT NULL,
+  `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nama` varchar(56) NOT NULL,
   `alamat` varchar(225) NOT NULL,
   `tgl_pesan` datetime NOT NULL,

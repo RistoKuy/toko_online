@@ -1,5 +1,5 @@
 CREATE TABLE `tb_barang` (
-  `id_brg` int PRIMARY KEY NOT NULL,
+  `id_brg` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nama_brg` varchar(120) COLLATE utf8mb4_general_ci NOT NULL,
   `keterangan` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
   `kategori` varchar(60) COLLATE utf8mb4_general_ci NOT NULL,

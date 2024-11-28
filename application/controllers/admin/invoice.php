@@ -34,4 +34,10 @@ class invoice extends CI_Controller
         $this->model_invoice->deleteInvoice($id);
         redirect('admin/invoice');
     }
+
+    public function deleteAll()
+    {
+        $this->model_invoice->deleteAllInvoice();
+        redirect('admin/invoice');
+    }
 }

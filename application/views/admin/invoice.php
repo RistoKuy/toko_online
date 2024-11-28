@@ -27,4 +27,5 @@
         <?php endforeach; ?>
         <?php endif; ?>
     </table>
+    <a href="<?= base_url('admin/invoice/deleteAll') ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete all invoices?');">Delete All Invoices</a>
 </div>
