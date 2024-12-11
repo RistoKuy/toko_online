@@ -36,8 +36,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href=<?php echo base_url('registrasi/index'); ?>
-                                            Belum punya akun? Daftar!</a>
+                                        <a class="small" href="<?php echo base_url('registrasi/index'); ?>">Belum punya akun? Daftar!</a>
                                     </div>
                                 </div>
                             </div>
@@ -62,5 +61,3 @@
     <script src="js/sb-admin-2.min.js"></script>
 
 </body>
-
-</html>
