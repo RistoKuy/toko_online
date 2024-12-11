@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 10, 2024 at 09:31 AM
+-- Generation Time: Dec 11, 2024 at 05:20 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -42,7 +42,7 @@ CREATE TABLE `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id_brg`, `nama_brg`, `keterangan`, `kategori`, `harga`, `stok`, `gambar`) VALUES
-(1, 'Sepatu', 'Merk All Star', 'Pakaian Pria', 300000, 10, 'sepatu.jpg'),
+(1, 'Sepatu', 'Merk All Star', 'Pakaian Pria', 300000, 9, 'sepatu.jpg'),
 (2, 'Smartphone', 'Samsung', 'Elektronik', 2000000, 10, 'hp.jpg'),
 (3, 'Kamera', 'Canon', 'Elektronik', 1000000, 12, 'kamera.jpg'),
 (4, 'Laptop', 'Asus', 'Elektronik', 4000000, 10, 'laptop.jpg');
@@ -61,6 +61,13 @@ CREATE TABLE `tb_invoice` (
   `batas_bayar` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `tb_invoice`
+--
+
+INSERT INTO `tb_invoice` (`id`, `nama`, `alamat`, `tgl_pesan`, `batas_bayar`) VALUES
+(1, 'Aristo Baadi', 'Jl Manggis', '2024-11-28 15:27:17', '2024-11-29 15:27:17');
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +83,46 @@ CREATE TABLE `tb_pesanan` (
   `harga` int NOT NULL,
   `pilihan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tb_pesanan`
+--
+
+INSERT INTO `tb_pesanan` (`id`, `id_invoice`, `id_brg`, `nama_brg`, `jumlah`, `harga`, `pilihan`) VALUES
+(1, 1, 1, 'Sepatu', 1, 300000, '');
+
+--
+-- Triggers `tb_pesanan`
+--
+DELIMITER $$
+CREATE TRIGGER `pesanan_penjualan` AFTER INSERT ON `tb_pesanan` FOR EACH ROW BEGIN
+    UPDATE tb_barang SET stok = stok - NEW.jumlah 
+    WHERE id_brg = NEW.id_brg;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_user`
+--
+
+CREATE TABLE `tb_user` (
+  `id` int NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `role_id` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tb_user`
+--
+
+INSERT INTO `tb_user` (`id`, `nama`, `username`, `password`, `role_id`) VALUES
+(1, 'admin', 'admin', '123', 1),
+(2, 'user', 'user', '123', 2);
 
 --
 -- Indexes for dumped tables
@@ -94,6 +141,12 @@ ALTER TABLE `tb_invoice`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -102,6 +155,12 @@ ALTER TABLE `tb_invoice`
 --
 ALTER TABLE `tb_invoice`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tb_user`
+--
+ALTER TABLE `tb_user`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
