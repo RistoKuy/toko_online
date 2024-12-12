@@ -10,4 +10,15 @@ BEGIN
 END
 */
 
-CREATE TRIGGER `pesanan_penjualan` AFTER INSERT ON `tb_pesanan` FOR EACH ROW BEGIN UPDATE tb_barang SET stok = stok - NEW.jumlah WHERE id_brg = NEW.id_brg; END
+DELIMITER //
+
+CREATE TRIGGER pesanan_penjualan 
+AFTER INSERT ON tb_pesanan 
+FOR EACH ROW 
+BEGIN 
+    UPDATE tb_barang 
+    SET stok = stok - NEW.jumlah 
+    WHERE id_brg = NEW.id_brg; 
+END; //
+
+DELIMITER ;
