@@ -32,12 +32,12 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
-                                        <hr>
                                     </form>
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="<?php echo base_url('registrasi/index'); ?>">Belum punya akun? Daftar!</a>
                                     </div>
+                                    <hr>
                                 </div>
                             </div>
                         </div>
