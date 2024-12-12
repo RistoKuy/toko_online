@@ -4,8 +4,9 @@ class Dashboard extends CI_Controller {
     public function index()
     {
         $data['barang'] = $this->model_barang->tampil_data()->result();
+        $data['total_items'] = $this->cart->total_items(); // Pass total items to the view
         $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $this->load->view('templates/sidebar', $data); // Pass data to sidebar
         $this->load->view('dashboard', $data);
         $this->load->view('templates/footer');
     }
@@ -20,12 +21,11 @@ class Dashboard extends CI_Controller {
         );
 
         $this->cart->insert($data);
-        redirect('welcome');
+        redirect('dashboard');
     }
     
     public function detail_keranjang()
     {
-
         $data['judul'] = 'Detail Keranjang Belanja';
 
         $this->load->view('templates/header', $data);
@@ -36,7 +36,7 @@ class Dashboard extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->library('cart');
+        $this->load->library('cart'); // Ensure the cart library is loaded
         $this->load->model('model_invoice'); // Add this line to load the model
         if($this->session->userdata('role_id') != '2')
         {

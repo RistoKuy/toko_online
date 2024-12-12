@@ -195,12 +195,8 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
                                     <?php
-                                    if (isset($this->cart)) {
-                                        $total_items = $this->cart->total_items();
-                                        echo anchor('dashboard/detail_keranjang', '<i class="fas fa-shopping-cart"></i> ' . $total_items);
-                                    } else {
-                                        echo anchor('dashboard/detail_keranjang', '<i class="fas fa-shopping-cart"></i> 0');
-                                    }
+                                    $total_items = $this->cart->total_items();
+                                    echo anchor('dashboard/detail_keranjang', '<i class="fas fa-shopping-cart"></i> ' . $total_items);
                                     ?>
                                 </li>
                             </ul>
